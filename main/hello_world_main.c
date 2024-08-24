@@ -12,6 +12,7 @@
 #include "freertos/task.h"
 #include "esp_system.h"
 #include "esp_spi_flash.h"
+#include "esp_log.h"
 
 #ifdef CONFIG_IDF_TARGET_ESP32
 #define CHIP_NAME "ESP32"
@@ -21,10 +22,14 @@
 #define CHIP_NAME "ESP32-S2 Beta"
 #endif
 
+static const char* TAG = "Main App";
+
 void app_main(void)
 {
     printf("Hello world!\n");
-
+    ESP_LOGI("Main App", "用于打印的消息"); 
+    ESP_LOGW("Main App", "用于报警的消息"); 
+    ESP_LOGE("Main App", "用于报错的消息"); 
     /* Print chip information */
     esp_chip_info_t chip_info;
     esp_chip_info(&chip_info);
