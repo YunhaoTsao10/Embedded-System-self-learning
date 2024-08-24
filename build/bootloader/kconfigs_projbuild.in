@@ -1,0 +1,3 @@
+source "/home/franktsao/桌面/work/esp/esp-idf/components/bootloader/Kconfig.projbuild"
+source "/home/franktsao/桌面/work/esp/esp-idf/components/esptool_py/Kconfig.projbuild"
+source "/home/franktsao/桌面/work/esp/esp-idf/components/partition_table/Kconfig.projbuild"
