@@ -24,12 +24,23 @@
 
 static const char* TAG = "Main App";
 
+static void test_task_example(void* arg)
+{
+    for(;;){
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        printf("task run \n");
+    }
+
+}
+
 void app_main(void)
 {
     printf("Hello world!\n");
     ESP_LOGI(TAG, "用于打印的消息"); 
     ESP_LOGW(TAG, "用于报警的消息"); 
     ESP_LOGE(TAG, "用于报错的消息"); 
+
+    xTaskCreate(test_task_example, "test_task_example", 2048, NULL, 10, NULL);
     /* Print chip information */
     esp_chip_info_t chip_info;
     esp_chip_info(&chip_info);
